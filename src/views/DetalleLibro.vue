@@ -11,7 +11,7 @@ const props = defineProps({
 const router = useRouter()
 const store = useStore()
 
-const categorias = ['Novela', 'Ensayo', 'Fantasía', 'Ciencia', 'Biografía', 'Poesía']
+const categorias = ['Novela', 'Ensayo', 'Fantasía', 'Ciencia', 'Biografía', 'Poesía', 'Ficción']
 
 const libro = computed(() => store.getters['productos/libroPorId'](props.id))
 const idsFavoritos = computed(() => store.getters['favoritos/ids'])
@@ -85,7 +85,7 @@ const imagenLibro = computed(() => {
           </div>
           <p class="autor">de {{ libro.autor }}</p>
           <p v-if="precioFormateado" class="precio">{{ precioFormateado }}</p>
-          <p class="descripcion">{{ libro.descripcion || 'Sin descripción disponible.' }}</p>
+          <p class="descripcion">{{ libro.descripcion }}</p>
           <div class="acciones-detalle">
             <button class="boton-estado" @click="alternarPublicado">
               {{ libro.publicado ? 'Volver a revisión' : 'Publicar libro' }}
