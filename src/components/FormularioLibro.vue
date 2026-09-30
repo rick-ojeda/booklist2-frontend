@@ -31,6 +31,8 @@ nuevoLibro.categoria = libro.categoria
 nuevoLibro.descripcion = libro.descripcion
 nuevoLibro.precio = libro.precio ?? null
 nuevoLibro.agotado = libro.agotado ?? false
+} else {
+nuevoLibro.agotado = false
 }
 },
 { immediate: true }
@@ -50,7 +52,7 @@ if (!nuevoLibro.titulo.trim() || !nuevoLibro.autor.trim() || !nuevoLibro.descrip
     error.value = 'Todos los campos son obligatorios.'
     return
   }
-if (nuevoLibro.precio === null || nuevoLibro.precio === '' || Number(nuevoLibro.precio) < 0) {
+if (nuevoLibro.precio === null || nuevoLibro.precio === '' || Number(nuevoLibro.precio) <= 0) {
     error.value = 'Ingresa un precio de venta válido.'
     return
   }
@@ -63,7 +65,7 @@ id: props.libroEditar.id,
 publicado: props.libroEditar.publicado
 })
 } else {
-await store.dispatch('productos/agregarLibro', { ...nuevoLibro })
+await store.dispatch('productos/agregarLibro', { ...nuevoLibro, agotado: false })
 limpiarFormulario()
 }
 
@@ -78,7 +80,8 @@ emit('guardado')
 <input v-model="nuevoLibro.titulo" placeholder="Título" @keyup.enter="enviar">
 <input v-model="nuevoLibro.autor" placeholder="Autor" @keyup.enter="enviar">
 </div>
-<div class="fila">Categoria
+<div class="fila">
+<label class="label-categoria">Categoría</label>
 <select v-model="nuevoLibro.categoria">
 <option v-for="cat in categorias" :key="cat" :value="cat">{{ cat }}</option>
 </select>
@@ -88,7 +91,7 @@ emit('guardado')
 </div>
 <div class="fila">
 <input v-model.number="nuevoLibro.precio" type="number" min="0" step="1" placeholder="Precio de venta ($)" @keyup.enter="enviar">
-<label class="check-agotado">
+<label v-if="libroEditar" class="check-agotado">
 <input type="checkbox" v-model="nuevoLibro.agotado">
 Agotado
 </label>
@@ -115,6 +118,7 @@ gap: 1.5rem;
 display: flex;
 gap: 0.8rem;
 margin-bottom: 0.8rem;
+align-items: center;
 }
 .fila input, .fila select {
 flex: 1;
@@ -151,6 +155,16 @@ white-space: nowrap;
 }
 .boton-agregar:hover {
 opacity: 0.9;
+}
+.label-categoria {
+flex: 0 0 auto;
+display: flex;
+align-items: center;
+padding: 0 0.4rem;
+color: #5b7a6e;
+font-size: 0.95rem;
+font-weight: 600;
+white-space: nowrap;
 }
 .check-agotado {
 flex: 0 0 auto;
