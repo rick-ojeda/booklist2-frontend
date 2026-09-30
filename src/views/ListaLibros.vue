@@ -5,7 +5,7 @@ import FormularioLibro from '../components/FormularioLibro.vue'
 import LibroItem from '../components/LibroItem.vue'
 
 const store = useStore()
-const categorias = ['Novela', 'Ensayo', 'Fantasía', 'Ciencia', 'Biografía', 'Poesía']
+const categorias = ['Novela', 'Ensayo', 'Fantasía', 'Ciencia', 'Biografía', 'Poesía', 'Ficción']
 
 onMounted(() => {
   store.dispatch('productos/cargarLibros')
@@ -46,7 +46,7 @@ const rangosPrecio = computed(() => {
   const maximo = precios.length ? Math.max(...precios) : 0
   const cantidad = Math.floor(maximo / PASO_PRECIO) + 1
   return Array.from({ length: cantidad }, (_, i) => {
-    const desde = i * PASO_PRECIO
+    const desde = i * PASO_PRECIO +1
     return {
       valor: String(desde),
       etiqueta: `${formatoPrecio(desde)} - ${formatoPrecio(desde + PASO_PRECIO - 1)}`
