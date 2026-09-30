@@ -13,7 +13,6 @@ const store = useStore()
 const nuevoLibro = reactive({
 titulo: '',
 autor: '',
-//categoria: 'Novela',
 categoria: '',
 descripcion: '',
 precio: null,
@@ -40,7 +39,6 @@ nuevoLibro.agotado = libro.agotado ?? false
 function limpiarFormulario() {
 nuevoLibro.titulo = ''
 nuevoLibro.autor = ''
-//nuevoLibro.categoria = 'Novela'
 nuevoLibro.categoria = ''
 nuevoLibro.descripcion = ''
 nuevoLibro.precio = null
