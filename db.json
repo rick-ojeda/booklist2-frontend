@@ -1,0 +1,45 @@
+{
+  "libros": [
+    {
+      "id": "1",
+      "titulo": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "categoria": "Novela",
+      "descripcion": "Una obra maestra del realismo mágico latinoamericano.",
+      "publicado": false,
+      "precio": 15990,
+      "agotado": true
+    },
+    {
+      "id": "2",
+      "titulo": "Cosmos",
+      "autor": "Carl Sagan",
+      "categoria": "Ciencia",
+      "descripcion": "Viaje científico y filosófico por la historia de la astronomía, la vida y el lugar de la humanidad en el universo.",
+      "publicado": false,
+      "precio": 12990,
+      "agotado": false
+    },
+    {
+      "id": "3",
+      "titulo": "El señor de los anillos",
+      "autor": "J.R.R. Tolkien",
+      "categoria": "Fantasía",
+      "descripcion": "Épica travesía de un grupo de héroes para destruir un anillo de poder.",
+      "publicado": false,
+      "precio": 24990,
+      "agotado": false
+    },
+    {
+      "id": "4",
+      "titulo": "El diario de Anna Frank",
+      "autor": "Anna Frank",
+      "categoria": "Biografía",
+      "descripcion": "Testimonio íntimo de una niña judía oculta junto a su familia durante la ocupación nazi.",
+      "publicado": true,
+      "precio": 9990,
+      "agotado": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
