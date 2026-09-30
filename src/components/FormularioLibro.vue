@@ -79,6 +79,7 @@ emit('guardado')
 <input v-model="nuevoLibro.autor" placeholder="Autor" @keyup.enter="enviar">
 </div>
 <div class="fila">
+<label class="label-categoria">Categoría</label>
 <select v-model="nuevoLibro.categoria">
 <option v-for="cat in categorias" :key="cat" :value="cat">{{ cat }}</option>
 </select>
@@ -151,6 +152,16 @@ white-space: nowrap;
 }
 .boton-agregar:hover {
 opacity: 0.9;
+}
+.label-categoria {
+flex: 0 0 auto;
+display: flex;
+align-items: center;
+padding: 0 0.4rem;
+color: #5b7a6e;
+font-size: 0.95rem;
+font-weight: 600;
+white-space: nowrap;
 }
 .check-agotado {
 flex: 1;
