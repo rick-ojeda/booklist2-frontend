@@ -69,7 +69,6 @@ const publicados = computed(() => libros.value.filter(libro => libro.publicado).
   padding: 0 2rem;
 }
 
-/* Cabecera */
 .cabecera {
   background: white;
   border-bottom: 1px solid #ecfdf5;
